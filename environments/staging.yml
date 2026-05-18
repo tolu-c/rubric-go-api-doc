@@ -1,0 +1,8 @@
+name: staging
+variables:
+  - name: host
+    value: https://msa-backend-xy0m.onrender.com
+  - name: v1
+    value: https://msa-backend-xy0m.onrender.com/v1
+  - name: v1-platform
+    value: https://msa-backend-xy0m.onrender.com/v1/platform

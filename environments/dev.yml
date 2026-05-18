@@ -1,0 +1,8 @@
+name: dev
+variables:
+  - name: host
+    value: http://localhost:8000
+  - name: v1
+    value: http://localhost:8000/v1
+  - name: v1-platform
+    value: http://localhost:8000/v1/platform

@@ -1,0 +1,23 @@
+info:
+  name: update-profile
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{host}}/me"
+  body:
+    type: json
+    data: |-
+      {
+        "first_name":"Tolu",
+        "last_name":"Adeyemo"
+        
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,23 @@
+info:
+  name: confirm
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/auth/totp/confirm"
+  body:
+    type: json
+    data: |-
+      {
+        "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTYwMjksImlhdCI6MTc3OTA1NTQyOSwianRpIjoiNzU0MzE0MGUtMDYzMS00MmQ3LWE2ZDItZDM3MmEwNThlMGEwIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfZW5yb2xsbWVudCJ9.ID7GmHBqdZhAGNB7ufJTktKTNl-SdZgHQUx3A6UnNXm2RNrMCacx_cfHCg8uZng1zRHzzNr3qUKjY28Kl4y4DHY8GqWave5UBxzOdOe5ltPjyjBjZjRMnpmFvPemhAnHdjXieY9uzBgUdVe1DidgIh-e196E3Ga1WSMbU4kef5lFIcwOOojy9-ztNi_mQB5xUgBvNn0LNjPbJWEVZJuRE76jT4alg18AjfCDb6N5uk0gQ3BaAURtQRIjeYK3G4oveL6g9-c2a127jl3j52EAMJo3njU-l4DO6JBI7-LSt1PqfrGtw1i9dS5ov2xawHsHuFurtNii7E_vVvVc7BUHoA",
+        "totp_code":"026174"
+        
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

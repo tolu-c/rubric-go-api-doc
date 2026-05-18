@@ -1,0 +1,52 @@
+info:
+  name: get-single-admin
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/admins/:id"
+  params:
+    - name: id
+      value: 7085509f-6111-4129-8132-26ce99ca3a8b
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/admins/:id"
+      method: GET
+      params:
+        - name: id
+          value: 7085509f-6111-4129-8132-26ce99ca3a8b
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 7bc0e474-0338-4d12-b0c4-caedb9925cf6
+        - name: date
+          value: Mon, 18 May 2026 14:15:13 GMT
+        - name: content-length
+          value: "189"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "7085509f-6111-4129-8132-26ce99ca3a8b",
+            "email": "webdevtolu@protonmail.com",
+            "first_name": "Tolu",
+            "last_name": "Adeyemo",
+            "status": "active",
+            "created_at": "2026-05-14T01:37:43.404868+01:00"
+          }

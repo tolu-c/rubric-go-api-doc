@@ -1,0 +1,83 @@
+info:
+  name: login
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "webdevtolu@protonmail.com",
+        "password": "A!s@D#f$:0192"
+      }
+
+      // response type i
+
+      // {
+      //   "status": "totp_enrollment_required",
+      //   "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTYwMjksImlhdCI6MTc3OTA1NTQyOSwianRpIjoiNzU0MzE0MGUtMDYzMS00MmQ3LWE2ZDItZDM3MmEwNThlMGEwIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfZW5yb2xsbWVudCJ9.ID7GmHBqdZhAGNB7ufJTktKTNl-SdZgHQUx3A6UnNXm2RNrMCacx_cfHCg8uZng1zRHzzNr3qUKjY28Kl4y4DHY8GqWave5UBxzOdOe5ltPjyjBjZjRMnpmFvPemhAnHdjXieY9uzBgUdVe1DidgIh-e196E3Ga1WSMbU4kef5lFIcwOOojy9-ztNi_mQB5xUgBvNn0LNjPbJWEVZJuRE76jT4alg18AjfCDb6N5uk0gQ3BaAURtQRIjeYK3G4oveL6g9-c2a127jl3j52EAMJo3njU-l4DO6JBI7-LSt1PqfrGtw1i9dS5ov2xawHsHuFurtNii7E_vVvVc7BUHoA"
+      // }
+
+      // response type ii
+
+      // {
+      //   "status": "totp_required",
+      //   "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTY2NDMsImlhdCI6MTc3OTA1NjA0MywianRpIjoiOTZhOTU4YWMtNWEwMC00NDg0LTliZjMtNzY2Y2E4ODk5ZGQ0IiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfY2hhbGxlbmdlIn0.DjFFtU1gIpMOH9_e7IWgGR6tpU9x3DzsT9C8TeOaf_UdjA9xyGxn5dfTy9q_EclCH7xkxV9rBCj3aGxyt5epWwG4bDZRkcCOU7h-9zrPpzqWTh94w1e3-Ivj0qRZ7mjyUDIyqbIFt66wkE4YkVGRuWcT9Ij1UhzULNQZ2yymuz5WFZJMqT4g4Em_ptjxxyXM-FkSRcboumruAhsalw5DGi_LcuyH4ZtxCnKvkF40bBnkh5dZGwPjSvNmcQbBbbslC8c5Elzpc-PufTVt5Kbe2qtliOvTwof2wEtuzsGEdny-ZI9ivkkRVa0h4p1DAC5EM_gHVyjHaov_ROkqfQ7iPA"
+      // }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: login-totp-required
+    description: login response when totp is required
+    request:
+      url: "{{host}}/auth/login"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "email": "webdevtolu@protonmail.com",
+            "password": "A!s@D#f$:0192"
+          }
+
+          // response type i
+
+          // {
+          //   "status": "totp_enrollment_required",
+          //   "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTYwMjksImlhdCI6MTc3OTA1NTQyOSwianRpIjoiNzU0MzE0MGUtMDYzMS00MmQ3LWE2ZDItZDM3MmEwNThlMGEwIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfZW5yb2xsbWVudCJ9.ID7GmHBqdZhAGNB7ufJTktKTNl-SdZgHQUx3A6UnNXm2RNrMCacx_cfHCg8uZng1zRHzzNr3qUKjY28Kl4y4DHY8GqWave5UBxzOdOe5ltPjyjBjZjRMnpmFvPemhAnHdjXieY9uzBgUdVe1DidgIh-e196E3Ga1WSMbU4kef5lFIcwOOojy9-ztNi_mQB5xUgBvNn0LNjPbJWEVZJuRE76jT4alg18AjfCDb6N5uk0gQ3BaAURtQRIjeYK3G4oveL6g9-c2a127jl3j52EAMJo3njU-l4DO6JBI7-LSt1PqfrGtw1i9dS5ov2xawHsHuFurtNii7E_vVvVc7BUHoA"
+          // }
+
+          // response type ii
+
+          // {
+          //   "status": "totp_required",
+          //   "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTY2NDMsImlhdCI6MTc3OTA1NjA0MywianRpIjoiOTZhOTU4YWMtNWEwMC00NDg0LTliZjMtNzY2Y2E4ODk5ZGQ0IiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfY2hhbGxlbmdlIn0.DjFFtU1gIpMOH9_e7IWgGR6tpU9x3DzsT9C8TeOaf_UdjA9xyGxn5dfTy9q_EclCH7xkxV9rBCj3aGxyt5epWwG4bDZRkcCOU7h-9zrPpzqWTh94w1e3-Ivj0qRZ7mjyUDIyqbIFt66wkE4YkVGRuWcT9Ij1UhzULNQZ2yymuz5WFZJMqT4g4Em_ptjxxyXM-FkSRcboumruAhsalw5DGi_LcuyH4ZtxCnKvkF40bBnkh5dZGwPjSvNmcQbBbbslC8c5Elzpc-PufTVt5Kbe2qtliOvTwof2wEtuzsGEdny-ZI9ivkkRVa0h4p1DAC5EM_gHVyjHaov_ROkqfQ7iPA"
+          // }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 5b584342-d4d2-4157-8520-ec7bbcbf95c3
+        - name: date
+          value: Mon, 18 May 2026 07:19:21 GMT
+        - name: content-length
+          value: "665"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "totp_required",
+            "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwODkzNjEsImlhdCI6MTc3OTA4ODc2MSwianRpIjoiYjFkNWZkZjYtYjA4Mi00ZTI3LTkyYzEtZjJhODYyYWQxM2IwIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfY2hhbGxlbmdlIn0.AcJErG99knd6Bx1QCwjHcvx4tigMhGvslIUhV3c091SDvhIbrErAXA7AePxjdr-Tv-CcQAGF6fvfb1-LguJTU72faPXcZchs4Tl-X8eqAE--hIIPWAJBKSa1SsQiZYKGUJXLu5JA7fTepsOyeBt4AocITh5Kd2rN6bQtLPDOkO0e_Zcsicjj9nAwzq7Fshf9pYWdDm04gJnz45Kto4yCIYIzAQijPCA6kEF7YmqyKF9OXsUZMHnWZZhPp0syFXH3vTbEHpvLTe-aIKa2HMTI6VDc-CCCwjWfPMrQBRDxxKTGxS4sHEdCPIgc_1BabziMKD5OwFGayTkEVo_zglg1pw"
+          }
