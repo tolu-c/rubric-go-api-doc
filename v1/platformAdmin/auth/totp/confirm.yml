@@ -21,3 +21,54 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/auth/totp/confirm"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTYwMjksImlhdCI6MTc3OTA1NTQyOSwianRpIjoiNzU0MzE0MGUtMDYzMS00MmQ3LWE2ZDItZDM3MmEwNThlMGEwIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfZW5yb2xsbWVudCJ9.ID7GmHBqdZhAGNB7ufJTktKTNl-SdZgHQUx3A6UnNXm2RNrMCacx_cfHCg8uZng1zRHzzNr3qUKjY28Kl4y4DHY8GqWave5UBxzOdOe5ltPjyjBjZjRMnpmFvPemhAnHdjXieY9uzBgUdVe1DidgIh-e196E3Ga1WSMbU4kef5lFIcwOOojy9-ztNi_mQB5xUgBvNn0LNjPbJWEVZJuRE76jT4alg18AjfCDb6N5uk0gQ3BaAURtQRIjeYK3G4oveL6g9-c2a127jl3j52EAMJo3njU-l4DO6JBI7-LSt1PqfrGtw1i9dS5ov2xawHsHuFurtNii7E_vVvVc7BUHoA",
+            "totp_code":"026174"
+            
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: set-cookie
+          value: msa_access=eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkwNTY3MDksImlhdCI6MTc3OTA1NTgwOSwianRpIjoiNGM5OTAxYzMtNGJmZC00ODdjLWIxYjYtMGQ3NzFkY2YxYWExIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX2FjY2VzcyJ9.g-CRUEZNsS_MXY7p9bc0uoOOmLuBWxyJpl_NBbwn7xL8m3mYCUGOnXFgJIfOIvPYeSXFyil6ARzGRekH50aFuss7pcplaROYQDy54Kr1x8J5YACnoNQU3N89FS68loJvV6k7of1jqXLETZbai3XVxsiQw5q9llB_vv0T2N5zhsteFz6Yo6wrdLBK9JWjHkUVYF25s6iTfU7pFSsUyevqHqMZUVMgePuZP-MXeLDwAEGHCOSi0EA47m5F1AiZW9EpQQzUuIrdXU1QPEC-Zq5zQRUtURKkZ1rxWfl1auRvOxpGJpj72m29lWtpRjtQ673YWNPhMVpm-caLPl5r2UGfxA; Path=/; Domain=localhost; Max-Age=900; HttpOnly; SameSite=Lax,msa_refresh=L4YgXUIXv26Utdz7U8LMoAEIDJIr_ChZdWxU4BkF5tY; Path=/; Domain=localhost; Max-Age=2592000; HttpOnly; SameSite=Lax
+        - name: x-request-id
+          value: 9cf2666b-d2ac-4461-ad70-2ef58c7bb635
+        - name: date
+          value: Sun, 17 May 2026 22:10:09 GMT
+        - name: content-length
+          value: "325"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "ok",
+            "platform_admin": {
+              "id": "7085509f-6111-4129-8132-26ce99ca3a8b",
+              "email": "webdevtolu@protonmail.com",
+              "first_name": "Tolu",
+              "last_name": "Adeyemo",
+              "created_at": "2026-05-14T01:37:43.404868+01:00"
+            },
+            "backup_codes": [
+              "90H4ZMW5MX",
+              "AGKG90DTM5",
+              "AP15SAXDKM",
+              "BWCRYJ0PKV",
+              "6S525M1KT5",
+              "7HWTW79H9P",
+              "3VDMDZZCJW",
+              "VEEQ8ZWN7M"
+            ]
+          }

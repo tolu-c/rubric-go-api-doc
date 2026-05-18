@@ -1,0 +1,40 @@
+info:
+  name: suspend admin
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{host}}/admins/:id/suspend"
+  params:
+    - name: id
+      value: 830fc85a-9c87-448e-8b74-1c97e14d8c26
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/admins/:id/suspend"
+      method: POST
+      params:
+        - name: id
+          value: 830fc85a-9c87-448e-8b74-1c97e14d8c26
+          type: path
+    response:
+      status: 204
+      statusText: No Content
+      headers:
+        - name: x-request-id
+          value: a54aac6e-be54-4443-aaea-31a413c2c6d1
+        - name: date
+          value: Mon, 18 May 2026 21:54:23 GMT
+      body:
+        type: text
+        data: ""
