@@ -1,0 +1,107 @@
+info:
+  name: get tenant status
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{v1}}/tenant"
+  headers:
+    - name: X-School-Slug
+      value: marade
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success - tenant
+    request:
+      url: "{{v1}}/tenant"
+      method: GET
+      headers:
+        - name: X-School-Slug
+          value: marade
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: cache-control
+          value: public, max-age=30
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 63673a38-2538-45b4-acd5-eaab89c9a932
+        - name: date
+          value: Tue, 19 May 2026 17:22:57 GMT
+        - name: content-length
+          value: "107"
+      body:
+        type: json
+        data: |-
+          {
+            "type": "tenant",
+            "slug": "marade",
+            "name": "Marade Scholars Academy",
+            "status": "active",
+            "dns_status": "pending"
+          }
+  - name: success - platform
+    request:
+      url: "{{v1}}/tenant"
+      method: GET
+      headers:
+        - name: X-School-Slug
+          value: marade
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: cache-control
+          value: public, max-age=30
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 2ba60cfb-1897-4101-8196-f94cf603fde5
+        - name: date
+          value: Tue, 19 May 2026 17:23:22 GMT
+        - name: content-length
+          value: "19"
+      body:
+        type: json
+        data: |-
+          {
+            "type": "platform"
+          }
+  - name: error - tenant
+    request:
+      url: "{{v1}}/tenant"
+      method: GET
+      headers:
+        - name: X-School-Slug
+          value: demo
+    response:
+      status: 404
+      statusText: Not Found
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: d374fbac-dff0-40d4-8eb9-73c106b7bcf5
+        - name: date
+          value: Tue, 19 May 2026 17:26:12 GMT
+        - name: content-length
+          value: "66"
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": "SCHOOL_NOT_FOUND",
+              "message": "school not found"
+            }
+          }
