@@ -1,0 +1,34 @@
+info:
+  name: logout
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{v1}}/auth/logout"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{v1}}/auth/logout"
+      method: POST
+    response:
+      status: 204
+      statusText: No Content
+      headers:
+        - name: set-cookie
+          value: msa_access=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax,msa_refresh=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax
+        - name: x-request-id
+          value: b6f7b0c5-f075-4f53-9e88-cc8c94052d2a
+        - name: date
+          value: Thu, 21 May 2026 21:41:07 GMT
+      body:
+        type: text
+        data: ""

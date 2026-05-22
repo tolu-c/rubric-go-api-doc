@@ -1,0 +1,52 @@
+info:
+  name: setup totp
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{auth}}/totp/setup"
+  body:
+    type: json
+    data: |-
+      {
+        "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDE4MzksImlhdCI6MTc3OTMwMTIzOSwianRpIjoiNGJkNzdiMjgtYzhmYi00ODRmLWI2MDEtMGZmNTk2MTE1MzdjIiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2Vucm9sbG1lbnQiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTcifQ.cxMNZnrfMiT9np6gnXx6KU1Z5ahZxBMXRAzW4vZc7xv7OdjZa-KS1CFd5GgAVs1UDUaRocfurihzJOJARcpxy3qhZ1PpOGU037Gzf_4ojM_kUfG3z9_uTcyFP0sa5m3BLcoaaBggkL2awvHAffEr-q9sIM3og3yarEjBl5zo9SjAf8ZnsNQ_TumsjYS90WVt_MlTEjKs1tcudF0QSfjXXHOqeQggcOUpu8nqJEUHyUi5yI76S26osvV6Rx6xpxDwBTTD1O-to1VRfi5zo85VectuHojOQT5zDllizUpZz-nenMae0CnG4rsJHqVccztmJy3sv1turbS6mK8v6uOxcg"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{auth}}/totp/setup"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDEwMzgsImlhdCI6MTc3OTMwMDQzOCwianRpIjoiOTgyYzhlYTctYTE3Ny00NWQ1LTgzOTItZDg1ZDU3NjRlZjk3IiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2Vucm9sbG1lbnQiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTcifQ.k_WGmVAE2lYGM098T6ZtXHL65zi-VNgPB-BRd7udufzhCf0nwr7XvobW1Ye0lmUJ7xwTzEt9lAUlnazJSSLSHr0LzzjtXA6KXf6Syvh7n4F6VmlvB0o93YYgoNc2L_hMoPm1VXeRraQRk7IxeUBMowfyPeaMf2laFbvsz7lDO-bqDoRUcbZAbOfAmz_J5aWnB016s6z7OpR3tzRJpHLaCA8claIi62q1JgH7RbHUX-r5ilikS2oM5t1zVCq3-Xtgck9DlvS6JeKNlT9s3ZZA5kWHxh-PRN-DGVeWsJcOMbhtyBYaCu6HQRNVU6jTYEGmImI2q91tcRexjekA_Z-AXg"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: d09f9282-eb60-4a48-aa6b-a9f3a2e9eae1
+        - name: date
+          value: Wed, 20 May 2026 18:12:03 GMT
+        - name: content-length
+          value: "209"
+      body:
+        type: json
+        data: |-
+          {
+            "secret_base32": "VN4557SRSDPJTSCJT7TPXWDVXPFMKGEO",
+            "otp_auth_uri": "otpauth://totp/MSA:mary@marade.com?algorithm=SHA1&digits=6&issuer=MSA&period=30&secret=VN4557SRSDPJTSCJT7TPXWDVXPFMKGEO"
+          }

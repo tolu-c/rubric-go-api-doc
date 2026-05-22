@@ -1,0 +1,122 @@
+info:
+  name: login
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{auth}}/login"
+  body:
+    type: json
+    data: |+
+      {
+        "identifier": "mary@marade.com",
+        "password": "A!s@D#f$:0192",
+        "active_role": "school_admin"
+      }
+
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: error - wrong role
+    request:
+      url: "{{auth}}/login"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "identifier":"mary@marade.com",
+            "password":"A!s@D#f$:0192",
+            "active_role":"staff"
+            
+          }
+    response:
+      status: 403
+      statusText: Forbidden
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 49250fa8-83e7-4fa0-8d11-8521c70bc3ae
+        - name: date
+          value: Wed, 20 May 2026 18:06:49 GMT
+        - name: content-length
+          value: "71"
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": "AUTH_ROLE_NOT_GRANTED",
+              "message": "role not granted"
+            }
+          }
+  - name: success - enroll totp
+    request:
+      url: "{{auth}}/login"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "identifier": "mary@marade.com",
+            "password": "A!s@D#f$:0192",
+            "active_role": "school_admin"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 0c1e2bec-8604-4268-95ff-f112edc3ae92
+        - name: date
+          value: Wed, 20 May 2026 18:07:18 GMT
+        - name: content-length
+          value: "744"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "totp_enrollment_required",
+            "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDEwMzgsImlhdCI6MTc3OTMwMDQzOCwianRpIjoiOTgyYzhlYTctYTE3Ny00NWQ1LTgzOTItZDg1ZDU3NjRlZjk3IiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2Vucm9sbG1lbnQiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTcifQ.k_WGmVAE2lYGM098T6ZtXHL65zi-VNgPB-BRd7udufzhCf0nwr7XvobW1Ye0lmUJ7xwTzEt9lAUlnazJSSLSHr0LzzjtXA6KXf6Syvh7n4F6VmlvB0o93YYgoNc2L_hMoPm1VXeRraQRk7IxeUBMowfyPeaMf2laFbvsz7lDO-bqDoRUcbZAbOfAmz_J5aWnB016s6z7OpR3tzRJpHLaCA8claIi62q1JgH7RbHUX-r5ilikS2oM5t1zVCq3-Xtgck9DlvS6JeKNlT9s3ZZA5kWHxh-PRN-DGVeWsJcOMbhtyBYaCu6HQRNVU6jTYEGmImI2q91tcRexjekA_Z-AXg"
+          }
+  - name: success - totp required
+    request:
+      url: "{{auth}}/login"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "identifier": "mary@marade.com",
+            "password": "A!s@D#f$:0192",
+            "active_role": "school_admin"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 87e66245-6b21-41c6-98d4-27d98f313da2
+        - name: date
+          value: Wed, 20 May 2026 18:24:13 GMT
+        - name: content-length
+          value: "730"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "totp_required",
+            "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDIwNTIsImlhdCI6MTc3OTMwMTQ1MiwianRpIjoiMGFiOTk2NDEtYjZlMC00OGYyLWJjMWEtNDhmNWUyZTAwMDBlIiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2NoYWxsZW5nZSIsInNjaG9vbF9pZCI6IjEyMTc5YzAwLWEzOTItNGE0Ny1iMWY0LTJjNmYyNmQxOGExNyJ9.i_hw6JDxiHWMpTObzHET6nbkC8stmjTFwFAob5EvZp7yusvtGpOLBmdGV9tiGNJER0hmEfP__egox8SkjopTcJQcwm4pzUWmh_ZTL0VoozjkQnPXen3iznARegnGZ2AAKaoF-7XTEWb8Rj3P5_BY5cmPIuh5cNAPe6Pw6qEtz7sBPXFPTO5r6ER32nYZMnuRKDCTqMtjAjx9sRxs_TtJzswn306KO248RS5imcjMNwbTKcthVzTngb8Ikg-jokI6w0hXDX9EAxJK9GhR-KKO-KFGEYYCbyOY4hRjTB8w3lbB1vO1NfgWhd6PkAHEqTtfi_tFkDsj0XZlJFm7trwIgA"
+          }

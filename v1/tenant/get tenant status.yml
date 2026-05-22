@@ -6,9 +6,6 @@ info:
 http:
   method: GET
   url: "{{v1}}/tenant"
-  headers:
-    - name: X-School-Slug
-      value: marade
   auth: inherit
 
 settings:

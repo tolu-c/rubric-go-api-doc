@@ -1,0 +1,79 @@
+info:
+  name: confirm totp
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{auth}}/totp/confirm"
+  body:
+    type: json
+    data: |-
+      {
+        "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDE4MzksImlhdCI6MTc3OTMwMTIzOSwianRpIjoiNGJkNzdiMjgtYzhmYi00ODRmLWI2MDEtMGZmNTk2MTE1MzdjIiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2Vucm9sbG1lbnQiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTcifQ.cxMNZnrfMiT9np6gnXx6KU1Z5ahZxBMXRAzW4vZc7xv7OdjZa-KS1CFd5GgAVs1UDUaRocfurihzJOJARcpxy3qhZ1PpOGU037Gzf_4ojM_kUfG3z9_uTcyFP0sa5m3BLcoaaBggkL2awvHAffEr-q9sIM3og3yarEjBl5zo9SjAf8ZnsNQ_TumsjYS90WVt_MlTEjKs1tcudF0QSfjXXHOqeQggcOUpu8nqJEUHyUi5yI76S26osvV6Rx6xpxDwBTTD1O-to1VRfi5zo85VectuHojOQT5zDllizUpZz-nenMae0CnG4rsJHqVccztmJy3sv1turbS6mK8v6uOxcg",
+        "totp_code": "155625"
+        
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{auth}}/totp/confirm"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "enrollment_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDE4MzksImlhdCI6MTc3OTMwMTIzOSwianRpIjoiNGJkNzdiMjgtYzhmYi00ODRmLWI2MDEtMGZmNTk2MTE1MzdjIiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2Vucm9sbG1lbnQiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTcifQ.cxMNZnrfMiT9np6gnXx6KU1Z5ahZxBMXRAzW4vZc7xv7OdjZa-KS1CFd5GgAVs1UDUaRocfurihzJOJARcpxy3qhZ1PpOGU037Gzf_4ojM_kUfG3z9_uTcyFP0sa5m3BLcoaaBggkL2awvHAffEr-q9sIM3og3yarEjBl5zo9SjAf8ZnsNQ_TumsjYS90WVt_MlTEjKs1tcudF0QSfjXXHOqeQggcOUpu8nqJEUHyUi5yI76S26osvV6Rx6xpxDwBTTD1O-to1VRfi5zo85VectuHojOQT5zDllizUpZz-nenMae0CnG4rsJHqVccztmJy3sv1turbS6mK8v6uOxcg",
+            "totp_code": "155625"
+            
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: set-cookie
+          value: msa_access=eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDIyNDUsImlhdCI6MTc3OTMwMTM0NSwianRpIjoiMjQxMDUxNWEtOTQwMy00ODY0LWIwOTItNTFiNTFkNWNiMDVhIiwidG9rZW5fdHlwZSI6InRlbmFudF9hY2Nlc3MiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTciLCJhdmFpbGFibGVfcm9sZXMiOlsic2Nob29sX2FkbWluIl0sImFjdGl2ZV9yb2xlIjoic2Nob29sX2FkbWluIn0.FvF9DQ_dYZlYMHh6zT7LGL2eEGhq0PImDbJ9E0GEYdJIuwgKx78jKU23vxkHtRil9ZIMeKwgGWQUw0n9KeQ55VPkf6NQgLGDTrJtkQhLYxFYySJzzCbx1Cn742umA_e81fbloqZgFEfiJo1KfPNnBEE9RIeYMFmTBoPHMNAJa1OuPlPsINn6FriUASCMghI-fHDI1AjcQ4ldzLkEEKDpe9gS_J6poW6dOAlq3lskZGGsi-WrL7_3-mdkROCmJfAr2Vs9dYZXPOuYK3HHVWjJ9LK1qwJOSHAE-0562OmEdG7kl2zT_etH39bh5RwQEEClp4NA2fzYj_tEYNgwBQkG-g; Path=/; Max-Age=900; HttpOnly; SameSite=Lax,msa_refresh=gxII7lo-YRiU3c9Zsv8ERdqMHK212bQg9SLGIr7hsZ0; Path=/; Max-Age=2592000; HttpOnly; SameSite=Lax
+        - name: x-request-id
+          value: 4a2cb19d-d83d-4328-a3d3-a954c4b273de
+        - name: date
+          value: Wed, 20 May 2026 18:22:25 GMT
+        - name: content-length
+          value: "429"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "ok",
+            "user": {
+              "id": "b88661b9-c578-459e-beaf-e5fe2cb85e81",
+              "school_id": "12179c00-a392-4a47-b1f4-2c6f26d18a17",
+              "email": "mary@marade.com",
+              "display_name": "Mary",
+              "available_roles": [
+                "school_admin"
+              ],
+              "active_role": "school_admin",
+              "must_change_password": false,
+              "created_at": "2026-05-20T19:02:33.558102+01:00"
+            },
+            "backup_codes": [
+              "GD4JDZD4Y9",
+              "FEDGGZARG6",
+              "X45P4K2XG3",
+              "8W721BJ2MW",
+              "JCM7SYB1WG",
+              "NRGP5T3YGM",
+              "Y3TCXAJ4C1",
+              "QCD93B4HPX"
+            ]
+          }

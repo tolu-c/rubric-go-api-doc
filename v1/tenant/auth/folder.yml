@@ -1,5 +1,5 @@
 info:
-  name: tenant
+  name: auth
   type: folder
   seq: 2
 
@@ -7,7 +7,11 @@ request:
   headers:
     - name: X-School-Slug
       value: "{{schoolSlug}}"
+      disabled: true
   auth: inherit
   variables:
+    - name: auth
+      value: "{{v1}}/auth"
     - name: schoolSlug
       value: marade
+      disabled: true

@@ -1,0 +1,68 @@
+info:
+  name: verify login
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{auth}}/login/verify-totp"
+  body:
+    type: json
+    data: |-
+      {
+        "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3Nzk0MjA4ODEsImlhdCI6MTc3OTQyMDI4MSwianRpIjoiMWY5YzdmNTgtMDcxOS00NGU4LWFhMGQtMzAxZjNlNGEwYzI3IiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2NoYWxsZW5nZSIsInNjaG9vbF9pZCI6IjEyMTc5YzAwLWEzOTItNGE0Ny1iMWY0LTJjNmYyNmQxOGExNyJ9.MWF2a3MLpH6ngzYqkxpms3LQw_Gr-dr631MX7bd1rDUL2LvqHV500y730XbgIMW_ezP00ZNUo2LRqIQ5sZtZwRO6UpUJk3_Pn0h_atAhMDndl94JIwE_wdDDx1IOO7Kocd-fHYl8HA0F2GrronNHDUhCc44_Z45XTtrP1IIUZBGOpwMXGrvYdXQVWzdtqc3WvJfimJz8pm_ecL_bZuNEG-caYJpZAWbGnAFWlL3RH2sYlrarDdrbKO1H-uc9bihEeU-4jbUmaJF2_Bxas4YgrotfoIh5tP05E3mXqymLOmH5-9phhkjte-hjSaAPHxHdT4844_89YDYnP724573Dkg",
+        "totp_code": "575802"
+        
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{auth}}/login/verify-totp"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDI1ODYsImlhdCI6MTc3OTMwMTk4NiwianRpIjoiMThlYTgyNTgtODU4YS00M2M5LWE4ZjItNmI0Y2VhODhlNWE2IiwidG9rZW5fdHlwZSI6InRlbmFudF90b3RwX2NoYWxsZW5nZSIsInNjaG9vbF9pZCI6IjEyMTc5YzAwLWEzOTItNGE0Ny1iMWY0LTJjNmYyNmQxOGExNyJ9.EghIT5FP5-ATfu-hTwasGm_Iw4LpaTl6MhzuKsbSfi3meYRtisU1H0vYh9eSa_LEBF0HF2QJmGe79W677tIAhMywHI0zCUNAXANRmy5A-z102A8P2birPl4lKqCNVrAh8lOei_rgTYKeFxePt5J7jMLU5BYFiyB78ghxUUsgKOWjPy-Pxbc3UIJ4tKtr_GY7gCikngNElzHkL4COmwCL0DNUhyZnM1uhtQMawkF5oM0GEJnjUM7Kba1EddU-zTj3-5IZAx_HXHN8va_wbfSl5fEfT_GDY3I2X7rVASFuNk-VAtUI2qCvR3zXfDbydlHOAJXPC1uozjhSuGuHkgROfg",
+            "totp_code": "044425"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: set-cookie
+          value: msa_access=eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiJiODg2NjFiOS1jNTc4LTQ1OWUtYmVhZi1lNWZlMmNiODVlODEiLCJleHAiOjE3NzkzMDI5MTcsImlhdCI6MTc3OTMwMjAxNywianRpIjoiMWEyNjQyMzgtMDU1NC00OWIyLWFjZTktMzA0NGY2Mjg2NjgzIiwidG9rZW5fdHlwZSI6InRlbmFudF9hY2Nlc3MiLCJzY2hvb2xfaWQiOiIxMjE3OWMwMC1hMzkyLTRhNDctYjFmNC0yYzZmMjZkMThhMTciLCJhdmFpbGFibGVfcm9sZXMiOlsic2Nob29sX2FkbWluIl0sImFjdGl2ZV9yb2xlIjoic2Nob29sX2FkbWluIn0.F6ZOJAAm1HUOQimbFkwd-itI1drWdSBq6J_uxTJAekiqQMyI9rMkrCYTT8Q4E9ZzozR6s2YGmiX6erdYNqUCyi2vdbRdup4TlBUDMCjko0KD4ywCCenI2YCPjLsRbFmyyov4CTcQJWiWXa8c6tWcuUCjpZ9mMu3ywF_WCzbnd5V7QrshaJMe2vOd1XrC-hW4Z8HFxNf_hlVjUmin2DGfKYH36Ncp6Qs-kQOae1iINYD7D4qF1dA-jZBEJLtxCYYBLRLiHLgKcNjl5gdR2z2iDQyjUUC_tSzHCGD61l5yT_tqHx2qov8fBU6BTDIPvlbdUuWlaaoqTdUrw1b5J_rrkw; Path=/; Max-Age=900; HttpOnly; SameSite=Lax,msa_refresh=xYeh7clxGVauuYmp1BS0VI5AYPn2x-Yn4P9ifvuJpj4; Path=/; Max-Age=2592000; HttpOnly; SameSite=Lax
+        - name: x-request-id
+          value: 17f7cbbd-d96a-4ee6-82f0-60700f3382a6
+        - name: date
+          value: Wed, 20 May 2026 18:33:37 GMT
+        - name: content-length
+          value: "308"
+      body:
+        type: json
+        data: |-
+          {
+            "status": "ok",
+            "user": {
+              "id": "b88661b9-c578-459e-beaf-e5fe2cb85e81",
+              "school_id": "12179c00-a392-4a47-b1f4-2c6f26d18a17",
+              "email": "mary@marade.com",
+              "display_name": "Mary",
+              "available_roles": [
+                "school_admin"
+              ],
+              "active_role": "school_admin",
+              "must_change_password": false,
+              "created_at": "2026-05-20T19:02:33.558102+01:00"
+            }
+          }
