@@ -11,8 +11,7 @@ http:
     data: |-
       {
         "first_name":"Tolu",
-        "last_name":"Adeyemo"
-        
+        "last_name":"Adeyemo" 
       }
   auth: inherit
 
