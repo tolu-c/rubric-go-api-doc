@@ -1,0 +1,264 @@
+info:
+  name: update staff
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{host}}/staff/:id"
+  params:
+    - name: id
+      value: 0a1e3709-236f-4e4d-ac2d-3883ab6685d0
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "first_name": "Rebecca",
+        "last_name": "Oguntamu",
+        "status": "active", // active | disabled for suspending staff
+        //   "email":'' // do not edit email
+        "phone": "2349133047666"
+      //   "subject_ids": [] // arrays of subject ids of classes assigned to the teacher
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/staff/:id"
+      method: PATCH
+      params:
+        - name: id
+          value: 0a1e3709-236f-4e4d-ac2d-3883ab6685d0
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "first_name": "Rebe",
+            "last_name": "Oguntamu",
+            "status": "active", // active | disabled for suspending staff
+            //   "email":'' // do not edit email
+            "phone": "2349133047666"
+          //   "subject_ids": [] // arrays of subject ids of classes assigned to the teacher
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 4318ee32-d8bd-4587-9a09-e327d3a5504e
+        - name: date
+          value: Tue, 07 Jul 2026 12:11:20 GMT
+        - name: content-length
+          value: "1486"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "0a1e3709-236f-4e4d-ac2d-3883ab6685d0",
+            "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+            "email": "rebe@excelmin.com",
+            "display_name": "Rebe Oguntamu",
+            "first_name": "Rebe",
+            "last_name": "Oguntamu",
+            "phone": "2349133047666",
+            "available_roles": [
+              "staff"
+            ],
+            "must_change_password": false,
+            "status": "active",
+            "totp_enabled": false,
+            "invite_status": "active",
+            "created_at": "2026-06-02T19:22:18.609851+01:00",
+            "classes": [
+              {
+                "id": "889c5d91-66c0-417e-b9ec-3a76c3458c83",
+                "name": "Grade 2"
+              },
+              {
+                "id": "9911da53-5060-4a51-9d99-2f161bfcaa1f",
+                "name": "Grade 3"
+              },
+              {
+                "id": "7a557a90-546a-4cc6-838b-b4b86bc90db0",
+                "name": "Grade 4"
+              },
+              {
+                "id": "31cda469-abf2-423a-9bd8-3a25db3f0f65",
+                "name": "Grade 5"
+              }
+            ],
+            "subjects": [
+              {
+                "id": "07ac5838-edec-4aec-9dbd-6e7e087ed9d8",
+                "name": "Phonics",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "5a94f03c-fc00-418f-af0e-42033f1a25bb",
+                "name": "Mathematics",
+                "class_name": "Grade 2"
+              },
+              {
+                "id": "6f01539f-8f77-40ff-b232-571204b1d569",
+                "name": "English Language",
+                "class_name": "Grade 2"
+              },
+              {
+                "id": "7a566d12-883c-4788-83c4-dbcc210aa98f",
+                "name": "English Language ",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "cad9fd25-cf97-4bc9-a383-db9b0d06e801",
+                "name": "Mathematics",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "8c4c58af-5763-4191-81e2-5f1eaa3fba7b",
+                "name": "Home Economics",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "e9c6ad89-6529-4d37-8f41-fe0fb50bad85",
+                "name": "English Language",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "fe4cbf28-af6a-4ab7-95f5-a332d8e9cc11",
+                "name": "Mathematics",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "ac986d44-2bd0-4376-9c30-8091779bb881",
+                "name": "Math",
+                "class_name": "Grade 5"
+              }
+            ]
+          }
+  - name: success 2
+    request:
+      url: "{{host}}/staff/:id"
+      method: PATCH
+      params:
+        - name: id
+          value: 0a1e3709-236f-4e4d-ac2d-3883ab6685d0
+          type: path
+      body:
+        type: json
+        data: |-
+          {
+            "first_name": "Rebecca",
+            "last_name": "Oguntamu",
+            "status": "active", // active | disabled for suspending staff
+            //   "email":'' // do not edit email
+            "phone": "2349133047666"
+          //   "subject_ids": [] // arrays of subject ids of classes assigned to the teacher
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 22cf3ee4-f9f6-4f7d-9049-50c5dbec76ee
+        - name: date
+          value: Tue, 07 Jul 2026 12:13:47 GMT
+        - name: content-length
+          value: "1492"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "0a1e3709-236f-4e4d-ac2d-3883ab6685d0",
+            "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+            "email": "rebe@excelmin.com",
+            "display_name": "Rebecca Oguntamu",
+            "first_name": "Rebecca",
+            "last_name": "Oguntamu",
+            "phone": "2349133047666",
+            "available_roles": [
+              "staff"
+            ],
+            "must_change_password": false,
+            "status": "active",
+            "totp_enabled": false,
+            "invite_status": "active",
+            "created_at": "2026-06-02T19:22:18.609851+01:00",
+            "classes": [
+              {
+                "id": "889c5d91-66c0-417e-b9ec-3a76c3458c83",
+                "name": "Grade 2"
+              },
+              {
+                "id": "9911da53-5060-4a51-9d99-2f161bfcaa1f",
+                "name": "Grade 3"
+              },
+              {
+                "id": "7a557a90-546a-4cc6-838b-b4b86bc90db0",
+                "name": "Grade 4"
+              },
+              {
+                "id": "31cda469-abf2-423a-9bd8-3a25db3f0f65",
+                "name": "Grade 5"
+              }
+            ],
+            "subjects": [
+              {
+                "id": "07ac5838-edec-4aec-9dbd-6e7e087ed9d8",
+                "name": "Phonics",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "5a94f03c-fc00-418f-af0e-42033f1a25bb",
+                "name": "Mathematics",
+                "class_name": "Grade 2"
+              },
+              {
+                "id": "6f01539f-8f77-40ff-b232-571204b1d569",
+                "name": "English Language",
+                "class_name": "Grade 2"
+              },
+              {
+                "id": "7a566d12-883c-4788-83c4-dbcc210aa98f",
+                "name": "English Language ",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "cad9fd25-cf97-4bc9-a383-db9b0d06e801",
+                "name": "Mathematics",
+                "class_name": "Grade 3"
+              },
+              {
+                "id": "8c4c58af-5763-4191-81e2-5f1eaa3fba7b",
+                "name": "Home Economics",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "e9c6ad89-6529-4d37-8f41-fe0fb50bad85",
+                "name": "English Language",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "fe4cbf28-af6a-4ab7-95f5-a332d8e9cc11",
+                "name": "Mathematics",
+                "class_name": "Grade 4"
+              },
+              {
+                "id": "ac986d44-2bd0-4376-9c30-8091779bb881",
+                "name": "Math",
+                "class_name": "Grade 5"
+              }
+            ]
+          }
