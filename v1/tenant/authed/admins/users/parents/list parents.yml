@@ -1,0 +1,197 @@
+info:
+  name: list parents
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/parents"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/parents"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 8bdcc3bd-e5d1-4653-9387-05fa8baaf76c
+        - name: date
+          value: Tue, 07 Jul 2026 14:15:15 GMT
+        - name: transfer-encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+            "meta": {
+              "page": 1,
+              "size": 20,
+              "has_next_page": false,
+              "has_previous_page": false,
+              "total_count": 5
+            },
+            "items": [
+              {
+                "id": "c3ed43aa-b2e5-4c46-9245-251ba23873a1",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "mroguns@excelmind.com",
+                "display_name": "Mr Oguntamu",
+                "first_name": "Mr",
+                "last_name": "Oguntamu",
+                "phone": "+2348029143465",
+                "children": [
+                  {
+                    "id": "d4bafb0b-3279-4125-abeb-d808afb12d8f",
+                    "first_name": "Rebecca",
+                    "last_name": "Oguntamu",
+                    "email": "rebecca@excelmind.com",
+                    "is_primary": false
+                  }
+                ],
+                "available_roles": [
+                  "parent"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-06-02T19:15:26.909724+01:00"
+              },
+              {
+                "id": "1341dc77-766f-44ff-9529-6c50f4c8afb8",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "mrsjane@excelmind.com",
+                "display_name": "Jane Doe",
+                "first_name": "Jane",
+                "last_name": "Doe",
+                "phone": "+2349076675905",
+                "children": [
+                  {
+                    "id": "c12ad6ac-bf29-40d3-ab4d-251201df0658",
+                    "first_name": "John",
+                    "last_name": "Doe",
+                    "email": "john@excelmind.com",
+                    "is_primary": false
+                  }
+                ],
+                "available_roles": [
+                  "parent"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-06-02T08:53:49.573218+01:00"
+              },
+              {
+                "id": "0da40374-04b0-4ba5-8668-f05122b4802c",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "david@excelmind.com",
+                "display_name": "David Ogunjobi",
+                "first_name": "David",
+                "last_name": "Ogunjobi",
+                "phone": "+2348141272477",
+                "children": [
+                  {
+                    "id": "18f71325-dd64-40f1-aab1-b010a8e96def",
+                    "first_name": "Richmond",
+                    "last_name": "Ogunjobi",
+                    "email": "richmond@excelmind.com",
+                    "is_primary": false
+                  }
+                ],
+                "available_roles": [
+                  "parent"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-05-28T19:11:53.453373+01:00"
+              },
+              {
+                "id": "4f7f85e1-0f53-473e-a297-095f801c0f33",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "mary@excelmind.com",
+                "display_name": "Mary Adeyemo",
+                "first_name": "Mary",
+                "last_name": "Adeyemo",
+                "phone": "+2348141272488",
+                "children": [
+                  {
+                    "id": "e4d245be-1ee8-44eb-9197-3c52776eb5a6",
+                    "first_name": "Temi",
+                    "last_name": "Adeyemo",
+                    "email": "temi@excelmind.com",
+                    "is_primary": true
+                  },
+                  {
+                    "id": "3927b31c-5ba1-4f97-9469-11dc21de7eb8",
+                    "first_name": "Oluwatimilehin",
+                    "last_name": "Adeyemo",
+                    "email": "timi@excelmind.com",
+                    "is_primary": true
+                  },
+                  {
+                    "id": "1985b2d0-7412-4375-9bd1-cb9671451dce",
+                    "first_name": "Oluwatise",
+                    "last_name": "Adeyemo",
+                    "email": "tise@excelmind.com",
+                    "is_primary": true
+                  }
+                ],
+                "available_roles": [
+                  "parent"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-05-27T21:39:01.890507+01:00"
+              },
+              {
+                "id": "bb12fbb5-f4b7-4876-9016-b6c34dc66de3",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "parent@excelmind.com",
+                "display_name": "Mrs. Tise",
+                "first_name": "",
+                "last_name": "",
+                "children": [
+                  {
+                    "id": "3927b31c-5ba1-4f97-9469-11dc21de7eb8",
+                    "first_name": "Oluwatimilehin",
+                    "last_name": "Adeyemo",
+                    "email": "timi@excelmind.com",
+                    "is_primary": false
+                  },
+                  {
+                    "id": "e4d245be-1ee8-44eb-9197-3c52776eb5a6",
+                    "first_name": "Temi",
+                    "last_name": "Adeyemo",
+                    "email": "temi@excelmind.com",
+                    "is_primary": false
+                  }
+                ],
+                "available_roles": [
+                  "parent"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-05-24T04:08:00.559938+01:00"
+              }
+            ]
+          }
