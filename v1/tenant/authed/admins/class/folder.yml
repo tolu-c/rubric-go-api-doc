@@ -1,0 +1,10 @@
+info:
+  name: class
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+  variables:
+    - name: adminClasses
+      value: "{{adminHost}}/classes"

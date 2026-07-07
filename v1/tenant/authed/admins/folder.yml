@@ -1,0 +1,12 @@
+info:
+  name: admins
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+  variables:
+    - name: host
+      value: "{{v1}}/admin/users"
+    - name: adminHost
+      value: "{{v1}}/admin"

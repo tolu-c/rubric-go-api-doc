@@ -8,13 +8,10 @@ http:
   url: "{{host}}/auth/login/verify-totp"
   body:
     type: json
-    data: |
+    data: |-
       {
-        "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiI3MDg1NTA5Zi02MTExLTQxMjktODEzMi0yNmNlOTljYTNhOGIiLCJleHAiOjE3NzkxOTQ1NTMsImlhdCI6MTc3OTE5Mzk1MywianRpIjoiNmFjY2Y3N2UtNTRhZi00N2E4LWFiODYtY2MxYTY4ODAzZDVjIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfY2hhbGxlbmdlIn0.eqQS2seehRRUEUDXQrcC25__uYKVxKWz7dgnHyBzm0FV-ZOQPwv4WLqDZvkxgaOkEe_jkwq3iE7bMy4i6ToQ3YtD7C8o2d5Xm77zwX1WQJ26jy6UAF2ee5Mi7N9bFdN5Tfuc5pAr33qkLV4M4hbsBgQbFQpkgePOaxe47IxAOp_-0DXPxXgP-ODIdkpvPLrGpKLP231djryNZcCZ8IH6lUH05ZmyOaCKMhZpo6v9nE3E7U12X-An0OL-1achntD2eL2wIFfWW_HAx6qiZAOADUwZPQ5M83MgAkGvuCagZdiXIWQ_zbDBG7eJS83HjB8akKwOrtW7QQqUweJkjUP4Dg",
-        "totp_code":"541213"
-        
-        
-        
+        "challenge_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRldi0xIiwidHlwIjoiSldUIn0.eyJzdWIiOiIyMmU4ZDRhNi1lZjU2LTQ2ZDMtOTA3Mi03N2Y5NjIzNTQ5YWIiLCJleHAiOjE3ODI0MTMwODgsImlhdCI6MTc4MjQxMjQ4OCwianRpIjoiYThhNTI5Y2YtMjQzOC00OTg3LTlkNTUtY2NkMWVmOTc2ODQzIiwidG9rZW5fdHlwZSI6InBsYXRmb3JtX3RvdHBfY2hhbGxlbmdlIn0.Fiedwi6_3ll-NF9Eq-r1t9luTnGOpIgkjlStWsB44L8C2HzOJxyJ1-f0dN0Z-JSjqN6W01dPSFjAEApzPX_RoX2WLjluteThlqaMyAQCx9_v0hGJFpBxQtZzlRHU1U1LfU8Hd3IZix5qrLTCrwbwhy4VxyjdnkKhqJ6OapPTfSrCp9hkF970lyTFrVfGN14y7OGSZcCVxBGPll-rzzTMgzzSWa84t-1qrEEG_zhOXtAMuOygiUHn_JUdsBoh2njhE_WmfWzbGA0fb_Y-MbJCPoQaypUi5FbP3y-BJoYN9BGkQo5eO88hzj7tM02kQhPzGi1MnGcbMjG0RjiooE74Sw",
+        "totp_code": "262618"
       }
   auth: inherit
 

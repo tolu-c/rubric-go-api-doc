@@ -1,0 +1,99 @@
+info:
+  name: get assessment
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/:id"
+  params:
+    - name: id
+      value: 15650fb1-f851-4e0a-9fba-1419748afab2
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/:id"
+      method: GET
+      params:
+        - name: id
+          value: 15650fb1-f851-4e0a-9fba-1419748afab2
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 038e17c6-e201-42d2-b6ee-441830d82079
+        - name: date
+          value: Tue, 02 Jun 2026 10:30:46 GMT
+        - name: content-length
+          value: "1215"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "15650fb1-f851-4e0a-9fba-1419748afab2",
+            "name": "English Test",
+            "description": "English test for grade 2",
+            "class": {
+              "id": "889c5d91-66c0-417e-b9ec-3a76c3458c83",
+              "name": "Grade 2"
+            },
+            "subject": {
+              "id": "6f01539f-8f77-40ff-b232-571204b1d569",
+              "name": "English Language"
+            },
+            "staff": {
+              "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+              "name": "David Harry"
+            },
+            "status": "pending_approval",
+            "questions": [
+              {
+                "question": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"marks\":[{\"type\":\"bold\"}],\"text\":\"What is an adjective?\"}]}]}",
+                "type": "essay",
+                "mark": 5,
+                "essay_answer": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"an adjective is a word used instead of a noun.\"}]}]}"
+              },
+              {
+                "question": "{\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"What is 2 +2?\"}]}]}",
+                "type": "mc",
+                "mark": 5,
+                "options": [
+                  {
+                    "value": "4",
+                    "is_correct": true
+                  },
+                  {
+                    "value": "6"
+                  },
+                  {
+                    "value": "8"
+                  },
+                  {
+                    "value": "10"
+                  }
+                ]
+              }
+            ],
+            "total_marks": 10,
+            "settings": {
+              "start_date": "2026-06-04T08:28:00+01:00",
+              "due_date": "2026-06-05T08:28:00+01:00",
+              "shuffle_questions": true,
+              "enable_timer": true,
+              "time_limit_seconds": 120
+            },
+            "created_at": "2026-06-02T08:28:48.830393+01:00"
+          }

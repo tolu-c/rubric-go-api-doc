@@ -1,0 +1,215 @@
+info:
+  name: list assessments
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 8460fdb4-9182-4f30-8909-353047f3a2be
+        - name: date
+          value: Tue, 02 Jun 2026 09:55:46 GMT
+        - name: content-length
+          value: "1578"
+      body:
+        type: json
+        data: |-
+          {
+            "meta": {
+              "page": 1,
+              "size": 20,
+              "has_next_page": false,
+              "has_previous_page": false,
+              "total_count": 3
+            },
+            "items": [
+              {
+                "id": "15650fb1-f851-4e0a-9fba-1419748afab2",
+                "name": "English Test",
+                "description": "English test for grade 2",
+                "class": {
+                  "id": "889c5d91-66c0-417e-b9ec-3a76c3458c83",
+                  "name": "Grade 2"
+                },
+                "subject": {
+                  "id": "6f01539f-8f77-40ff-b232-571204b1d569",
+                  "name": "English Language"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 2,
+                "total_marks": 10,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-04T08:28:00+01:00",
+                "due_date": "2026-06-05T08:28:00+01:00",
+                "created_at": "2026-06-02T08:28:48.830393+01:00"
+              },
+              {
+                "id": "0459aa18-192d-4a7c-b18f-c3536d5e75f9",
+                "name": "English Test",
+                "description": "English Test",
+                "class": {
+                  "id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                  "name": "Grade 1"
+                },
+                "subject": {
+                  "id": "2d829db6-b76a-4a45-8537-425f284c7dcb",
+                  "name": "English Language"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 1,
+                "total_marks": 5,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-03T08:00:00+01:00",
+                "due_date": "2026-06-04T08:00:00+01:00",
+                "created_at": "2026-06-01T22:29:48.084568+01:00"
+              },
+              {
+                "id": "2bcb8cc0-33f0-4620-a295-d4f862ddaae9",
+                "name": "Maths Test",
+                "description": "mathematics test",
+                "class": {
+                  "id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                  "name": "Grade 1"
+                },
+                "subject": {
+                  "id": "36302642-44c4-415d-b6c3-68c8f6d98304",
+                  "name": "Mathematics"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 2,
+                "total_marks": 10,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-03T08:00:00+01:00",
+                "due_date": "2026-06-04T08:00:00+01:00",
+                "created_at": "2026-06-01T22:25:40.737697+01:00"
+              }
+            ]
+          }
+  - name: successII
+    request:
+      url: "{{host}}"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: eab506f8-bffe-4e87-9e65-b0ea0c3a5898
+        - name: date
+          value: Tue, 02 Jun 2026 10:30:27 GMT
+        - name: content-length
+          value: "1803"
+      body:
+        type: json
+        data: |-
+          {
+            "meta": {
+              "page": 1,
+              "size": 20,
+              "has_next_page": false,
+              "has_previous_page": false,
+              "total_count": 3
+            },
+            "items": [
+              {
+                "id": "15650fb1-f851-4e0a-9fba-1419748afab2",
+                "name": "English Test",
+                "description": "English test for grade 2",
+                "class": {
+                  "id": "889c5d91-66c0-417e-b9ec-3a76c3458c83",
+                  "name": "Grade 2"
+                },
+                "subject": {
+                  "id": "6f01539f-8f77-40ff-b232-571204b1d569",
+                  "name": "English Language"
+                },
+                "staff": {
+                  "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                  "name": "David Harry"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 2,
+                "total_marks": 10,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-04T08:28:00+01:00",
+                "due_date": "2026-06-05T08:28:00+01:00",
+                "created_at": "2026-06-02T08:28:48.830393+01:00"
+              },
+              {
+                "id": "0459aa18-192d-4a7c-b18f-c3536d5e75f9",
+                "name": "English Test",
+                "description": "English Test",
+                "class": {
+                  "id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                  "name": "Grade 1"
+                },
+                "subject": {
+                  "id": "2d829db6-b76a-4a45-8537-425f284c7dcb",
+                  "name": "English Language"
+                },
+                "staff": {
+                  "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                  "name": "David Harry"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 1,
+                "total_marks": 5,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-03T08:00:00+01:00",
+                "due_date": "2026-06-04T08:00:00+01:00",
+                "created_at": "2026-06-01T22:29:48.084568+01:00"
+              },
+              {
+                "id": "2bcb8cc0-33f0-4620-a295-d4f862ddaae9",
+                "name": "Maths Test",
+                "description": "mathematics test",
+                "class": {
+                  "id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                  "name": "Grade 1"
+                },
+                "subject": {
+                  "id": "36302642-44c4-415d-b6c3-68c8f6d98304",
+                  "name": "Mathematics"
+                },
+                "staff": {
+                  "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                  "name": "David Harry"
+                },
+                "status": "pending_approval",
+                "no_of_questions": 2,
+                "total_marks": 10,
+                "current_submissions": 0,
+                "total_submissions": 2,
+                "start_date": "2026-06-03T08:00:00+01:00",
+                "due_date": "2026-06-04T08:00:00+01:00",
+                "created_at": "2026-06-01T22:25:40.737697+01:00"
+              }
+            ]
+          }

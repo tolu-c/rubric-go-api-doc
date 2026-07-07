@@ -8,13 +8,16 @@ http:
   url: "{{auth}}/login"
   body:
     type: json
-    data: |+
+    data: |-
       {
-        "identifier": "mary@marade.com",
-        "password": "A!s@D#f$:0192",
-        "active_role": "school_admin"
+      //   "identifier": "emma@excelmind.com",
+      //   "password": "passwordasdf",
+        //   "identifier": "mary@marade.com",
+        //   "password": "A!s@D#f$:0192",
+        "identifier":"staff2@excelmind.com",
+        "password":"A!s@D#f$:0192",
+        "active_role": "staff"
       }
-
   auth: inherit
 
 settings:

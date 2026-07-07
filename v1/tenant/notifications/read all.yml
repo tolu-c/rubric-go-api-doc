@@ -1,0 +1,32 @@
+info:
+  name: read all
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{host}}/read-all"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/read-all"
+      method: POST
+    response:
+      status: 204
+      statusText: No Content
+      headers:
+        - name: x-request-id
+          value: bcaf8bb0-632e-4589-b25e-6ada461ddf07
+        - name: date
+          value: Mon, 01 Jun 2026 15:33:35 GMT
+      body:
+        type: text
+        data: ""

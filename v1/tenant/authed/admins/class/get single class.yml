@@ -1,0 +1,128 @@
+info:
+  name: get single class
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{adminClasses}}/:slug"
+  params:
+    - name: slug
+      value: grade-1
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{adminClasses}}/:slug"
+      method: GET
+      params:
+        - name: slug
+          value: grade-1
+          type: path
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: cf4be0c7-4db3-4c0f-92f4-21842a10b7a3
+        - name: date
+          value: Tue, 26 May 2026 23:18:10 GMT
+        - name: content-length
+          value: "1765"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+            "name": "Grade 1",
+            "slug": "grade-1",
+            "nick_name": "Ruby",
+            "description": "Junior secondary school year 1, blue cohort.",
+            "main_teacher": {
+              "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+              "email": "staff2@excelmind.com",
+              "display_name": "Mr. Harry",
+              "first_name": "David",
+              "last_name": "Harry"
+            },
+            "teaches_all_subjects": false,
+            "subjects": [
+              {
+                "id": "36302642-44c4-415d-b6c3-68c8f6d98304",
+                "class_id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                "name": "Mathematics",
+                "slug": "math",
+                "description": "Core mathematics for JSS1.",
+                "teachers": [
+                  {
+                    "id": "1dff8915-a8c7-4a97-b33c-b58317598c8b",
+                    "email": "staff1@excelmind.com",
+                    "display_name": "Staff #1",
+                    "first_name": "Tolu",
+                    "last_name": "Code"
+                  },
+                  {
+                    "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                    "email": "staff2@excelmind.com",
+                    "display_name": "Mr. Harry",
+                    "first_name": "David",
+                    "last_name": "Harry"
+                  }
+                ],
+                "created_at": "2026-05-27T00:14:25.4025+01:00"
+              },
+              {
+                "id": "2d829db6-b76a-4a45-8537-425f284c7dcb",
+                "class_id": "9aad7a25-f73f-421d-94d2-ac5e486df40a",
+                "name": "English Language",
+                "slug": "english",
+                "description": "Language and literature.",
+                "teachers": [
+                  {
+                    "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                    "email": "staff2@excelmind.com",
+                    "display_name": "Mr. Harry",
+                    "first_name": "David",
+                    "last_name": "Harry"
+                  }
+                ],
+                "created_at": "2026-05-27T00:14:25.4025+01:00"
+              }
+            ],
+            "students": [
+              {
+                "id": "1985b2d0-7412-4375-9bd1-cb9671451dce",
+                "email": "tise@excelmind.com",
+                "display_name": "Tise",
+                "first_name": "Oluwatise",
+                "last_name": "Adeyemo"
+              }
+            ],
+            "staff": [
+              {
+                "id": "1dff8915-a8c7-4a97-b33c-b58317598c8b",
+                "email": "staff1@excelmind.com",
+                "display_name": "Staff #1",
+                "first_name": "Tolu",
+                "last_name": "Code"
+              },
+              {
+                "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                "email": "staff2@excelmind.com",
+                "display_name": "Mr. Harry",
+                "first_name": "David",
+                "last_name": "Harry"
+              }
+            ],
+            "created_at": "2026-05-27T00:14:25.4025+01:00"
+          }

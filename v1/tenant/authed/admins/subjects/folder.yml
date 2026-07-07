@@ -1,0 +1,10 @@
+info:
+  name: subjects
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit
+  variables:
+    - name: adminSubjects
+      value: "{{adminHost}}/subjects"

@@ -10,4 +10,4 @@ request:
   auth: inherit
   variables:
     - name: schoolSlug
-      value: marade
+      value: excelmind

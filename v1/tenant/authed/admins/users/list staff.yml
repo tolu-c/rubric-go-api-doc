@@ -1,0 +1,191 @@
+info:
+  name: list staff
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/staff"
+  params:
+    - name: status
+      value: active
+      type: query
+      disabled: true
+    - name: invite_status
+      value: active
+      type: query
+      disabled: true
+    - name: search
+      value: Harry
+      type: query
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+      disabled: true
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/staff"
+      method: GET
+      params:
+        - name: status
+          value: active
+          type: query
+          disabled: true
+        - name: invite_status
+          value: active
+          type: query
+          disabled: true
+        - name: search
+          value: Harry
+          type: query
+          disabled: true
+        - name: page
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: b0083fb2-d1c9-45cd-80e2-fe6d88ece478
+        - name: date
+          value: Sun, 24 May 2026 01:51:51 GMT
+        - name: content-length
+          value: "1183"
+      body:
+        type: json
+        data: |-
+          {
+            "meta": {
+              "page": 1,
+              "size": 20,
+              "has_next_page": false,
+              "has_previous_page": false,
+              "total_count": 3
+            },
+            "items": [
+              {
+                "id": "f79087a4-b09f-42e2-ba4e-9b5f4cb210b5",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "staff3@excelmind.com",
+                "display_name": "Staff 3",
+                "first_name": "",
+                "last_name": "",
+                "available_roles": [
+                  "staff"
+                ],
+                "must_change_password": true,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "pending",
+                "created_at": "2026-05-24T00:18:27.326287+01:00"
+              },
+              {
+                "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "staff2@excelmind.com",
+                "display_name": "Mr. David",
+                "first_name": "David",
+                "last_name": "Harry",
+                "available_roles": [
+                  "staff"
+                ],
+                "must_change_password": false,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "active",
+                "created_at": "2026-05-23T21:15:23.449348+01:00"
+              },
+              {
+                "id": "1dff8915-a8c7-4a97-b33c-b58317598c8b",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "staff1@excelmind.com",
+                "display_name": "Staff #1",
+                "first_name": "Tolu",
+                "last_name": "Code",
+                "available_roles": [
+                  "staff"
+                ],
+                "must_change_password": false,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "active",
+                "created_at": "2026-05-23T17:23:19.746084+01:00"
+              }
+            ]
+          }
+  - name: success - params
+    request:
+      url: "{{host}}/staff?search=Harry"
+      method: GET
+      params:
+        - name: status
+          value: active
+          type: query
+          disabled: true
+        - name: invite_status
+          value: active
+          type: query
+          disabled: true
+        - name: search
+          value: Harry
+          type: query
+        - name: page
+          value: "1"
+          type: query
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: b3d84559-97c4-4dbb-b9ba-3429b466a740
+        - name: date
+          value: Sun, 24 May 2026 01:52:32 GMT
+        - name: content-length
+          value: "468"
+      body:
+        type: json
+        data: |-
+          {
+            "meta": {
+              "page": 1,
+              "size": 20,
+              "has_next_page": false,
+              "has_previous_page": false,
+              "total_count": 1
+            },
+            "items": [
+              {
+                "id": "8cf444ed-50d9-47a2-905f-2865cc90970a",
+                "school_id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+                "email": "staff2@excelmind.com",
+                "display_name": "Mr. David",
+                "first_name": "David",
+                "last_name": "Harry",
+                "available_roles": [
+                  "staff"
+                ],
+                "must_change_password": false,
+                "status": "active",
+                "totp_enabled": false,
+                "invite_status": "active",
+                "created_at": "2026-05-23T21:15:23.449348+01:00"
+              }
+            ]
+          }
