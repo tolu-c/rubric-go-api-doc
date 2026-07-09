@@ -11,3 +11,5 @@ request:
   variables:
     - name: schoolSlug
       value: excelmind
+    - name: ""
+      value: excelmind

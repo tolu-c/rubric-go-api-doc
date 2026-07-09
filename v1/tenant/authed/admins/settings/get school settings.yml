@@ -1,0 +1,52 @@
+info:
+  name: get school settings
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: b671ea03-7b1b-4c66-a6b9-bb194d845d3a
+        - name: date
+          value: Wed, 08 Jul 2026 21:43:04 GMT
+        - name: content-length
+          value: "347"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2",
+            "slug": "excelmind",
+            "name": "Excelmind College",
+            "short_name": "",
+            "address": "",
+            "contact_email": "contact@excelmind.com",
+            "contact_name": "",
+            "contact_phone": "",
+            "logo_url": "",
+            "status": "active",
+            "dns_status": "pending",
+            "scholar_id_prefix": "EC",
+            "scholar_id_digits": 4,
+            "created_at": "2026-05-22T21:56:27.947861+01:00"
+          }
