@@ -1,8 +1,8 @@
 name: staging
 variables:
   - name: host
-    value: https://msa-backend-xy0m.onrender.com
+    value: https://api.lyceo.app/
   - name: v1
-    value: https://msa-backend-xy0m.onrender.com/v1
+    value: https://api.lyceo.app/v1
   - name: v1-platform
-    value: https://msa-backend-xy0m.onrender.com/v1/platform
+    value: https://api.lyceo.app//v1/platform
