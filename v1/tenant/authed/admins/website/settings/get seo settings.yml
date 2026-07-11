@@ -1,0 +1,45 @@
+info:
+  name: get seo settings
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 33bf6bfa-1079-4514-bcc3-695834d209a3
+        - name: date
+          value: Sat, 11 Jul 2026 13:39:26 GMT
+        - name: content-length
+          value: "800"
+      body:
+        type: json
+        data: |-
+          {
+            "seo_title": "Excelmind College | College for Excellent minds",
+            "seo_description": "Excelmind College | College for Excellent minds, Excelmind College | College for Excellent minds",
+            "seo_keywords": "excelmind, college, excelmind college, school, education",
+            "social_image_url": "https://cdn.byteship.cloud/f/p_BoFW4Wvo/files/tenant/f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2/seo/ada9750d-23d9-41fd-8caa-0801bcaacbfc.jpg",
+            "social_image_path": "files/tenant/f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2/seo/ada9750d-23d9-41fd-8caa-0801bcaacbfc.jpg",
+            "favicon_url": "https://cdn.byteship.cloud/f/p_BoFW4Wvo/files/tenant/f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2/favicons/94a58570-db32-4e6c-98fb-57cb0ab9df2f.png",
+            "favicon_path": "files/tenant/f8ae0107-a1f3-40a5-a72e-b5f94f1e8eb2/favicons/94a58570-db32-4e6c-98fb-57cb0ab9df2f.png"
+          }
