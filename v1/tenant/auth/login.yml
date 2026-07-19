@@ -10,13 +10,13 @@ http:
     type: json
     data: |-
       {
-      //   "identifier": "emma@excelmind.com",
-      //   "password": "passwordasdf",
+        "identifier": "emma@excelmind.com",
+        "password": "passwordasdf",
         //   "identifier": "mary@marade.com",
         //   "password": "A!s@D#f$:0192",
-        "identifier":"staff2@excelmind.com",
-        "password":"A!s@D#f$:0192",
-        "active_role": "staff"
+      //   "identifier":"staff2@excelmind.com",
+      //   "password":"A!s@D#f$:0192",
+        "active_role": "school_admin"
       }
   auth: inherit
 
