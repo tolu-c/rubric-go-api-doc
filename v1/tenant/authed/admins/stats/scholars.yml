@@ -1,0 +1,44 @@
+info:
+  name: scholars
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{host}}/scholars"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/scholars"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: 8e520c92-1118-4adb-ab36-e1028f7bdd6e
+        - name: date
+          value: Sun, 19 Jul 2026 21:47:15 GMT
+        - name: content-length
+          value: "97"
+      body:
+        type: json
+        data: |-
+          {
+            "total": 11,
+            "active": 11,
+            "disabled": 0,
+            "pending_invite": 8,
+            "unassigned": 0,
+            "average_performance": 100
+          }

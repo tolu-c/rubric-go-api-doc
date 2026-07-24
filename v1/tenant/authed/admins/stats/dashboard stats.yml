@@ -1,0 +1,44 @@
+info:
+  name: dashboard stats
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{host}}/dashboard"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: success
+    request:
+      url: "{{host}}/dashboard"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: x-request-id
+          value: f4af8158-55df-4aff-8234-e6ddbb1db4e7
+        - name: date
+          value: Sun, 19 Jul 2026 21:11:35 GMT
+        - name: content-length
+          value: "113"
+      body:
+        type: json
+        data: |-
+          {
+            "staff_count": 10,
+            "scholar_count": 11,
+            "parent_count": 8,
+            "total_classes": 5,
+            "active_classes": 3,
+            "pending_approvals": 0
+          }
